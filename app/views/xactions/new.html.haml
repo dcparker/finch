@@ -1,0 +1,13 @@
+%h1 Xactions controller, new action
+
+%p 
+  Edit this file in 
+  %tt app/views/xactions/new.html.erb
+
+= error_messages_for @xaction
+
+= form_for(@xaction, :action => url(:xactions) ) do
+  %p
+    = submit "Create"
+
+= link_to 'Back', url(:xactions)

@@ -1,0 +1,19 @@
+/*********** Color Scheme 1 ************/
+html {background-color:#9fb4cc;}
+body a {color:#0000ee;}
+div#logo {border: 1px solid #33332d;background-color:#cccc9f;}
+div#logo p.company {color:#fff;}
+div#main {background-color:#db4105;}
+div#main .content {background-color:#fff;}
+div#main .content a {color:blue;text-decoration:none;}
+div#main .content a:hover {background-color:#cccc9f;color:#000;}
+div#main .content th {background-color: #cccc9f;}
+div#main .content .tickettablerows td {border-bottom: 1px solid #cccc9f;}
+div#main .content h1 {background-color:#cccc9f;}
+div#navigation a {background-color:#33332d;color:#fff;text-decoration:none;}
+div#navigation a:hover {background-color:#db4105;color:#fff;}
+div#navigation a.selected {background-color:#db4105;}
+div#footer {background-color:#cccc9f;color:#000;border-top:1px solid #33332d;}
+div#footer a {color:#000;}
+.opaque {opacity:0.7;filter: alpha(opacity=80);color:#33332d;}
+.opaque a {color:#33332d;}

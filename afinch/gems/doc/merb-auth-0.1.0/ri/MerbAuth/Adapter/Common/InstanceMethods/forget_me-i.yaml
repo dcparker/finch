@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: MerbAuth::Adapter::Common::InstanceMethods#forget_me
+is_singleton: false
+name: forget_me
+params: ()
+visibility: public

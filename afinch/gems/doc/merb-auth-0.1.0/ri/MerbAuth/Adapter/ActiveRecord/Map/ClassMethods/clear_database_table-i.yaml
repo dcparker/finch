@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A method to assist with specs
+full_name: MerbAuth::Adapter::ActiveRecord::Map::ClassMethods#clear_database_table
+is_singleton: false
+name: clear_database_table
+params: ()
+visibility: public

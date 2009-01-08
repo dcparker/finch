@@ -1,0 +1,13 @@
+%h1 Schedules controller, new action
+
+%p 
+  Edit this file in 
+  %tt app/views/schedules/new.html.erb
+
+= error_messages_for @schedule
+
+= form_for(@schedule, :action => url(:schedules) ) do
+  %p
+    = submit "Create"
+
+= link_to 'Back', url(:schedules)

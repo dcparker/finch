@@ -1,0 +1,18 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: included
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Provides basic functionality for sessions. eg Allows login and logout.
+constants: []
+
+full_name: MerbAuth::Controller::SessionsBase
+includes: []
+
+instance_methods: []
+
+name: SessionsBase
+superclass: 

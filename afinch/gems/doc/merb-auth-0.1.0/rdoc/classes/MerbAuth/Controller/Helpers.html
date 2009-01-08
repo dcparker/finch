@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: MerbAuth::Controller::Helpers</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">MerbAuth::Controller::Helpers</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/merb-auth/controller/controller_rb.html">
+                lib/merb-auth/controller/controller.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000066">access_denied</a>&nbsp;&nbsp;
+      <a href="#M000064">authorized?</a>&nbsp;&nbsp;
+      <a href="#M000062">current_ma_user</a>&nbsp;&nbsp;
+      <a href="#M000063">current_ma_user=</a>&nbsp;&nbsp;
+      <a href="#M000061">logged_in?</a>&nbsp;&nbsp;
+      <a href="#M000070">login_from_basic_auth</a>&nbsp;&nbsp;
+      <a href="#M000071">login_from_cookie</a>&nbsp;&nbsp;
+      <a href="#M000069">login_from_session</a>&nbsp;&nbsp;
+      <a href="#M000065">login_required</a>&nbsp;&nbsp;
+      <a href="#M000068">redirect_back_or_default</a>&nbsp;&nbsp;
+      <a href="#M000067">store_location</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000066" class="method-detail">
+        <a name="M000066"></a>
+
+        <div class="method-heading">
+          <a href="Helpers.src/M000066.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000066.html');return false;">
+          <span class="method-name">access_denied</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Redirect as appropriate when an access request fails.
+</p>
+<p>
+The default action is to redirect to the login screen.
+</p>
+<p>
+Override this method in your controllers if you want to have special
+behavior in case the user is not authorized to access the requested action.
+For example, a popup window might simply close itself.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000064" class="method-detail">
+        <a name="M000064"></a>
+
+        <div class="method-heading">
+          <a href="Helpers.src/M000064.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000064.html');return false;">
+          <span class="method-name">authorized?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Check if the user is authorized
+</p>
+<p>
+Override this method in your controllers if you want to restrict access to
+only a few actions or if you want to check if the user has the correct
+rights.
+</p>
+<p>
+Example:
+</p>
+<pre>
+ # only allow nonbobs
+ def authorized?
+   current_ma_user.login != &quot;bob&quot;
+ end
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000062" class="method-detail">
+        <a name="M000062"></a>
+
+        <div class="method-heading">
+          <a href="Helpers.src/M000062.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000062.html');return false;">
+          <span class="method-name">current_ma_user</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Accesses the current user from the session. Set it to :false if login fails
+so that future calls do not hit the database.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000063" class="method-detail">
+        <a name="M000063"></a>
+
+        <div class="method-heading">
+          <a href="Helpers.src/M000063.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000063.html');return false;">
+          <span class="method-name">current_ma_user=</span><span class="method-args">(new_user)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Store the given user in the session.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000061" class="method-detail">
+        <a name="M000061"></a>
+
+        <div class="method-heading">
+          <a href="Helpers.src/M000061.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000061.html');return false;">
+          <span class="method-name">logged_in?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns true or false if the user is logged in. Preloads @<a
+href="Helpers.html#M000062">current_ma_user</a> with the user model if
+they&#8216;re logged in.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000070" class="method-detail">
+        <a name="M000070"></a>
+
+        <div class="method-heading">
+          <a href="Helpers.src/M000070.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000070.html');return false;">
+          <span class="method-name">login_from_basic_auth</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Called from <a href="Helpers.html#M000062">current_ma_user</a>. Now,
+attempt to login by basic authentication information.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000071" class="method-detail">
+        <a name="M000071"></a>
+
+        <div class="method-heading">
+          <a href="Helpers.src/M000071.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000071.html');return false;">
+          <span class="method-name">login_from_cookie</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Called from <a href="Helpers.html#M000062">current_ma_user</a>. Finaly,
+attempt to login by an expiring token in the cookie.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000069" class="method-detail">
+        <a name="M000069"></a>
+
+        <div class="method-heading">
+          <a href="Helpers.src/M000069.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000069.html');return false;">
+          <span class="method-name">login_from_session</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Called from <a href="Helpers.html#M000062">current_ma_user</a>. First
+attempt to login by the user id stored in the session.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000065" class="method-detail">
+        <a name="M000065"></a>
+
+        <div class="method-heading">
+          <a href="Helpers.src/M000065.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000065.html');return false;">
+          <span class="method-name">login_required</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Filter method to enforce a login requirement.
+</p>
+<p>
+To require logins for all actions, use this in your controllers:
+</p>
+<pre>
+  before_filter :login_required
+</pre>
+<p>
+To require logins for specific actions, use this in your controllers:
+</p>
+<pre>
+  before_filter :login_required, :only =&gt; [ :edit, :update ]
+</pre>
+<p>
+To skip this in a subclassed controller:
+</p>
+<pre>
+  skip_before_filter :login_required
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000068" class="method-detail">
+        <a name="M000068"></a>
+
+        <div class="method-heading">
+          <a href="Helpers.src/M000068.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000068.html');return false;">
+          <span class="method-name">redirect_back_or_default</span><span class="method-args">(default, notice = &quot;&quot;)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Redirect to the URI stored by the most recent <a
+href="Helpers.html#M000067">store_location</a> call or to the passed
+default.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000067" class="method-detail">
+        <a name="M000067"></a>
+
+        <div class="method-heading">
+          <a href="Helpers.src/M000067.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000067.html');return false;">
+          <span class="method-name">store_location</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Store the URI of the current request in the session.
+</p>
+<p>
+We can return to this location by calling <a
+href="Helpers.html#M000068">redirect_back_or_default</a>.
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

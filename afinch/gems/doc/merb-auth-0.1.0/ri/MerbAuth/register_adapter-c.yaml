@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Registers an adapter. @param [Symbol] name is the name of the adapter. Supported adapters are :datamapper and :activerecord @param [String] path is the path to the adapter. The adapter path <em>directory</em> should include an init.rb file @param [Hash] opts an options hash
+full_name: MerbAuth::register_adapter
+is_singleton: true
+name: register_adapter
+params: (name, path, opts = {})
+visibility: public

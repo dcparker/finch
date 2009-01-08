@@ -1,0 +1,6 @@
+= form_for :xion, :action => @xion.new_record? ? url(:xion) : url(:xion, @xion) do |form|
+  = text_field(:amount, :label => 'Amount')
+  = text_field(:from, :label => 'From')
+  = text_field(:to, :label => 'To')
+  = text_field(:description, :label => 'Description')
+  = submit 'Save'

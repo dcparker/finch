@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>load_adapter! (MerbAuth)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/merb-auth/initializer.rb, line 25</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">load_adapter!</span>(<span class="ruby-identifier">adapter</span> = <span class="ruby-keyword kw">nil</span>)
+    <span class="ruby-identifier">adapter</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">config</span>[<span class="ruby-identifier">:adapter</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">Merb</span>.<span class="ruby-identifier">orm_generator_scope</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;MerbAuth: No Adapter Specified&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">adapter</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">adapter</span>.<span class="ruby-identifier">blank?</span>
+    
+    <span class="ruby-comment cmt"># Check that the adapter is registered</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;MerbAuth: Adapter Not Registered - #{adapter}&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">adapters</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">adapter</span>.<span class="ruby-identifier">to_sym</span>)
+    
+    <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Merb</span>.<span class="ruby-identifier">env?</span>(<span class="ruby-identifier">:test</span>)
+      <span class="ruby-identifier">load</span> <span class="ruby-identifier">adapters</span>[<span class="ruby-identifier">adapter</span>.<span class="ruby-identifier">to_sym</span>][<span class="ruby-identifier">:path</span>] <span class="ruby-operator">/</span> <span class="ruby-value str">&quot;init.rb&quot;</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">require</span> <span class="ruby-identifier">adapters</span>[<span class="ruby-identifier">adapter</span>.<span class="ruby-identifier">to_sym</span>][<span class="ruby-identifier">:path</span>] <span class="ruby-operator">/</span> <span class="ruby-value str">&quot;init&quot;</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

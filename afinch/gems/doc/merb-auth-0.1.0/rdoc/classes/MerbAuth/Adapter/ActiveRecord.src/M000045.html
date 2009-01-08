@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>included (MerbAuth::Adapter::ActiveRecord)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/merb-auth/adapters/activerecord/model.rb, line 5</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">included</span>(<span class="ruby-identifier">base</span>)
+        <span class="ruby-comment cmt"># Ensure base is a resource</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;Mixin class is not an activerecord class&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">base</span>.<span class="ruby-identifier">ancestors</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>)
+        <span class="ruby-identifier">set_model_class_decs!</span>(<span class="ruby-identifier">base</span>)
+        
+        <span class="ruby-identifier">base</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">:include</span>, <span class="ruby-constant">Map</span>)
+        <span class="ruby-identifier">base</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">:include</span>, <span class="ruby-constant">InstanceMethods</span> )
+        <span class="ruby-identifier">base</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">:include</span>, <span class="ruby-constant">Common</span>)
+        
+        
+        <span class="ruby-constant">MA</span>[<span class="ruby-identifier">:single_resource</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">base</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">snake_case</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-value str">&quot;::&quot;</span>, <span class="ruby-value str">&quot;__&quot;</span>).<span class="ruby-identifier">to_sym</span>
+        <span class="ruby-constant">MA</span>[<span class="ruby-identifier">:plural_resource</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">MA</span>[<span class="ruby-identifier">:single_resource</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">pluralize</span>.<span class="ruby-identifier">to_sym</span>
+          
+        <span class="ruby-constant">MA</span>[<span class="ruby-identifier">:user</span>] = <span class="ruby-identifier">base</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

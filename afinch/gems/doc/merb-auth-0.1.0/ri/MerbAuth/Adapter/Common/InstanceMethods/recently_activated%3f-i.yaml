@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns true if the user has just been activated.
+full_name: MerbAuth::Adapter::Common::InstanceMethods#recently_activated?
+is_singleton: false
+name: recently_activated?
+params: ()
+visibility: public

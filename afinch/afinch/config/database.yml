@@ -1,0 +1,13 @@
+---
+# This is a sample database file for the DataMapper ORM
+:development: &defaults
+  :adapter: sqlite3
+  :database: development.sqlite3
+
+:test:
+  <<: *defaults
+  :database: finch_test
+
+:production:
+  <<: *defaults
+  :database: finch_production

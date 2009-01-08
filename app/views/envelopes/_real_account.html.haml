@@ -1,0 +1,9 @@
+%div.envelope.real_account
+  %div
+    %p.name= real_account.name
+    %p.amount== $#{real_account.actual_amount.to_money}
+    %ul.clickmenu
+      %li
+        %a.modal_link{:href => url(:deposit_envelope, real_account)} Deposit
+      %li
+        %a.modal_link{:href => url(:withdraw_envelope, real_account)} Withdraw

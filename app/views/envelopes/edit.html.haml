@@ -1,0 +1,15 @@
+%h1
+  Envelopes controller, edit action
+%p
+  Edit this file in
+  %tt
+    app/views/envelopes/edit.html.erb
+= error_messages_for @envelope
+
+= form_for(@envelope, :action => url(:envelope, @envelope)) do
+  %p
+    = submit "Update"
+
+= link_to 'Show', url(:envelope, @envelope)
+|
+= link_to 'Back', url(:envelopes)

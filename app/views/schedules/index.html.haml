@@ -1,0 +1,16 @@
+%h1
+  Schedules controller, index action
+%p
+  Edit this file in
+  %tt
+    app/views/schedules/index.html.erb
+%table
+  %tr
+  - for schedule in @schedules
+    %tr
+      %td
+        = link_to 'Show', url(:schedule, schedule)
+      %td
+        = link_to 'Edit', url(:edit_schedule,  schedule)
+
+= link_to 'New', url(:new_schedule)

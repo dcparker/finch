@@ -1,0 +1,30 @@
+- @page_title = 'New Transaction'
+%form{:action => url(:transaction), :method => 'POST'}
+  %p
+    %label.dollar{:for => 'amount'} Amount: $
+    %input.dollar{:type => 'text', :name => 'transaction[amount]'}
+  %p
+    %label.ledger{:for => 'from'} From:
+    %input.ledger{:type => 'text', :name => 'transaction[from]'}
+    %label.ledger{:for => 'to'} To:
+    %input.ledger{:type => 'text', :name => 'transaction[to]'}
+  %p
+    %label{:for => 'tags'} Tags:
+    %input{:type => 'text', :name => 'transaction[tags]'}
+  %p
+    %label{:for => 'description'} Description:
+    %input{:type => 'text', :name => 'transaction[description]'}
+  %p
+    %input{:type => 'submit', :value => 'Save'}
+%div
+  %ul
+    - @transactions.each do |t|
+      %li
+        = "$#{t.amount} from #{t.from} to #{t.to}, on #{t.created_at.to_s}."
+        %a.delete_link{:href => 'javascript:void(0)', :style => 'color:red', :onclick => 'document.getElementById("delete_form").action = "'+url(:transaction, t)+'"; document.getElementById("delete_form").submit()'} X
+%form#delete_form{:action => url(:transactions), :method => 'POST'}
+  %input{:type => 'hidden', :name => '_method', :value => 'DELETE'}
+%div
+  %ul
+    - Ledger.all.each do |l|
+      %li= "[#{l.name}] - $#{l.amount}"

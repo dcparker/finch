@@ -1,0 +1,16 @@
+%h1
+  Envelopes controller, index action
+%p
+  Edit this file in
+  %tt
+    app/views/envelopes/index.html.erb
+%table
+  %tr
+  - for envelope in @envelopes
+    %tr
+      %td
+        = link_to 'Show', url(:envelope, envelope)
+      %td
+        = link_to 'Edit', url(:edit_envelope,  envelope)
+
+= link_to 'New', url(:new_envelope)

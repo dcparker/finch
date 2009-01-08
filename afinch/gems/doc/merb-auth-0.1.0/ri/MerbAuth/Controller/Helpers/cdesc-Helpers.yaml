@@ -1,0 +1,36 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: MerbAuth::Controller::Helpers
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: access_denied
+- !ruby/object:RI::MethodSummary 
+  name: authorized?
+- !ruby/object:RI::MethodSummary 
+  name: current_ma_user
+- !ruby/object:RI::MethodSummary 
+  name: current_ma_user=
+- !ruby/object:RI::MethodSummary 
+  name: logged_in?
+- !ruby/object:RI::MethodSummary 
+  name: login_from_basic_auth
+- !ruby/object:RI::MethodSummary 
+  name: login_from_cookie
+- !ruby/object:RI::MethodSummary 
+  name: login_from_session
+- !ruby/object:RI::MethodSummary 
+  name: login_required
+- !ruby/object:RI::MethodSummary 
+  name: redirect_back_or_default
+- !ruby/object:RI::MethodSummary 
+  name: store_location
+name: Helpers
+superclass: 

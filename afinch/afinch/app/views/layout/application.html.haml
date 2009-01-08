@@ -1,0 +1,71 @@
+!!! XML
+!!! Strict
+%html
+  %head
+    %title= APP[:display_name]
+    %meta{'http-equiv' => 'content-type', :content => 'text/html; charset=utf-8'}
+    %link{:charset => 'utf-8', :href => '/bliss/stylesheets/reset-fonts.css', :media => 'screen', :rel => 'stylesheet', :type => 'text/css'}
+    %link{:charset => 'utf-8', :href => '/bliss/stylesheets/base.css', :media => 'screen', :rel => 'stylesheet', :type => 'text/css'}
+    %link{:charset => 'utf-8', :href => '/bliss/stylesheets/common.css', :media => 'screen', :rel => 'stylesheet', :type => 'text/css'}
+    %link{:charset => 'utf-8', :href => "/bliss/stylesheets/#{APP[:nickname]}.css", :media => 'screen', :rel => 'stylesheet', :type => 'text/css'}
+    %link{:charset => 'utf-8', :href => "/bliss/stylesheets/color_scheme1.css", :media => 'screen', :rel => 'stylesheet', :type => 'text/css', :title => "color_scheme1"}
+    %link{:charset => 'utf-8', :href => "/bliss/stylesheets/color_scheme2.css", :media => 'screen', :rel => 'alternate stylesheet', :type => 'text/css', :title => "color_scheme2"}
+    %link{:charset => 'utf-8', :href => "/bliss/stylesheets/color_scheme3.css", :media => 'screen', :rel => 'alternate stylesheet', :type => 'text/css', :title => "color_scheme3"}
+    %link{:charset => 'utf-8', :href => "/bliss/stylesheets/color_scheme4.css", :media => 'screen', :rel => 'alternate stylesheet', :type => 'text/css', :title => "color_scheme4"}
+    = @head_content
+    %script{:type => 'text/javascript', :src => '/bliss/javascripts/jquery-1.2.3.js'}
+  %body
+    %p.hidden
+      %a{:href => '#navigation'} Skip to Navigation
+      %a{:href => '#content'} Skip to Content
+      %a{:href => '#search'} Skip to Search
+      %a{:href => '#utilities'} Skip to Utilities
+    %div#main_container
+      %div#main.corners1
+        - if @page_title
+          %h1= @page_title
+        %div.hidden
+          %script{:type => 'text/javascript'}
+            - presenter.error.each do |error|
+              = "flash_error(#{error.inspect});"
+            - presenter.info.each do |info|
+              = "flash_info(#{info.inspect});"
+            - presenter.instruct.each do |instruct|
+              = "flash_instruct(#{instruct.inspect});"
+        %div.content.corners1
+          = catch_content :layout
+      %div.spacer
+    %div#navigation
+      %h3 Navigation
+      %ul
+        - if signed_in?
+          %li
+            %a{:href => url(:transactions), :class => "selected"}
+              My Transactions
+          %li
+            %a{:href => url(:new_transaction), :accesskey => 'n'}
+              New Transaction
+    %div#search
+      %form#search_form{:action => url(:transactions), :method => 'post'}
+        %p
+          %label{:for => 'search-input'} Live Search:
+          %input#search_input{:accesskey => 'f', :name => 'q', :type => 'text'}
+          %input{:type => 'submit', :value => 'Search'}
+    %div#footer.opaque
+      %div.floatright
+        - if signed_in?
+          = "Welcome, &nbsp; #{Person.current} &nbsp; &nbsp; /"
+          %a{:href => url(:signout)} Signout
+        - else
+          %form.floatright{:action => url(:signin)}
+            Login:
+            %input#openid_url{:type => 'text', :name => 'openid_url'}
+            or
+            %a{:href => '/'} Get an OpenID
+      %p.floatleft
+        %a.email{:href => 'mailto:ding@bat.com'} support@behindlogic.com
+    %div#logo
+      %p.product= APP[:display_name]
+      %p.company= 'by '+APP[:vendor_name]
+      - if APP[:slogan]
+        %h4.slogan= APP[:slogan]

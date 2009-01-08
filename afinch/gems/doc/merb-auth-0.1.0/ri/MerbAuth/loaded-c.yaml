@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Stub classes loaded hook - runs before LoadClasses BootLoader right after a slice's classes have been loaded internally
+full_name: MerbAuth::loaded
+is_singleton: true
+name: loaded
+params: ()
+visibility: public

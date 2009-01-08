@@ -1,0 +1,22 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: MerbAuth::Adapter::DataMapper::Map::ClassMethods
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: clear_database_table
+- !ruby/object:RI::MethodSummary 
+  name: find_active_with_conditions
+- !ruby/object:RI::MethodSummary 
+  name: find_all_with_login_like
+- !ruby/object:RI::MethodSummary 
+  name: find_with_conditions
+name: ClassMethods
+superclass: 

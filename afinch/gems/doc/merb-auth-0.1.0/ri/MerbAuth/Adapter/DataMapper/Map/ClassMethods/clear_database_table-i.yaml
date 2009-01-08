@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: MerbAuth::Adapter::DataMapper::Map::ClassMethods#clear_database_table
+is_singleton: false
+name: clear_database_table
+params: ()
+visibility: public

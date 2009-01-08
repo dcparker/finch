@@ -1,0 +1,10 @@
+- throw_content :modal_title, @envelope.is_real_account? ? 'Account Withdrawal' : 'Envelope Withdrawal'
+/ Really this creates a transaction that deposits into @envelope from user's choice of any envelope.
+= form_for(@xaction, :action => url(:xactions) ) do
+  = hidden_field :from_id, :value => @envelope.id
+  = text_field :amount, :label => "How much to withdraw from #{@envelope.name}?"
+  %label into
+  %select{:name => 'xaction[to_id]'}
+    - my(:envelopes).each do |acc|
+      %option{:value => acc.id}= acc.name
+  = submit "Withdraw"

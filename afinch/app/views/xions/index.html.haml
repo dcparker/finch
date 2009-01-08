@@ -1,0 +1,12 @@
+%div#xions.table
+  %span.header
+    %span Amount
+    %span Movement
+    %span Description
+    %span Tags
+  - @xions.each do |xion|
+    %span.xion.row
+      %span= xion.amount
+      %span= xion.movement
+      %span= xion.description
+      %span= xion.tags.collect {|tag| "#{tag}"}.join(', ')

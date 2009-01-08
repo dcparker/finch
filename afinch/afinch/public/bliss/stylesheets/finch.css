@@ -1,0 +1,21 @@
+#content form {
+  margin:2em;
+}
+
+#content form input, #content form label {
+	font-size: 1.5em;
+	height: 1.4em;
+	padding: 2px;
+}
+
+#content form .dollar {
+	width: 5em;
+}
+
+#content form .ledger {
+  width: 8em;
+}
+
+#content form p {
+  padding:1.5em;
+}

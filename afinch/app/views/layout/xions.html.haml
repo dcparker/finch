@@ -1,0 +1,28 @@
+!!! Strict
+%html
+  %head
+    %meta{'http-equiv' => "Content-Type", :content => 'text/html; charset=utf-8'}
+    %title Finch
+    %link{:rel => 'stylesheet', :href => '/stylesheets/reset-fonts-grids.css', :type => 'text/css', :media => 'screen'}
+    %link{:rel => 'stylesheet', :href => '/stylesheets/base-min.css', :type => 'text/css', :media => 'screen'}
+    %script{:type => 'text/javascript', :src => '/javascripts/jquery.js'}
+    %script{:type => 'text/javascript', :src => '/javascripts/jquery-ui.js'}
+    %link{:rel => 'stylesheet', :href => '/stylesheets/common.css', :type => 'text/css', :media => 'screen'}
+    %link{:rel => 'stylesheet', :href => '/stylesheets/finch.css', :type => 'text/css', :media => 'screen'}
+    %script{:type => 'text/javascript', :src => '/javascripts/common.js'}
+    %script{:type => 'text/javascript', :src => '/javascripts/finch.js'}
+    = catch_content :head
+  %body
+    #wrapper
+      #header
+        %h1{:style => 'display:none'} My Transactions
+        %span
+          Welcome
+          = current_user.login
+          %a{:href => url(:logout)} Logout?
+      #search
+        %form{:action => url(:xions), :method => 'POST'}
+          Search:
+          %input.search_box{:name => 'q', :value => 'Not functional yet'}
+        %a.new_xion{:href => url(:new_xion)} New Transaction
+      = catch_content :for_layout

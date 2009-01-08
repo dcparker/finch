@@ -1,0 +1,15 @@
+%h1
+  Xactions controller, edit action
+%p
+  Edit this file in
+  %tt
+    app/views/xactions/edit.html.erb
+= error_messages_for @xaction
+
+= form_for(@xaction, :action => url(:xaction, @xaction)) do
+  %p
+    = submit "Update"
+
+= link_to 'Show', url(:xaction, @xaction)
+|
+= link_to 'Back', url(:xactions)

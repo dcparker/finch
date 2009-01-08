@@ -1,0 +1,16 @@
+- if envelope.is_real_account?
+  = partial 'envelopes/real_account', :with => envelope
+- else
+  %div.envelope
+    %div
+      %p.name= envelope.name
+      %p.amount== $#{envelope.actual_amount.to_money}
+      %ul.clickmenu
+        %li
+          %a.modal_link{:href => url(:spend_envelope, envelope)} Spend
+        %li
+          %a.modal_link{:href => url(:deposit_envelope, envelope)} Deposit
+        %li
+          %a.modal_link{:href => url(:withdraw_envelope, envelope)} Withdraw
+        %li
+          %a.modal_link{:href => url(:budget_envelope, envelope)} Budget

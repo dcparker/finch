@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: MerbAuth::Adapter::ActiveRecord::Map::ClassMethods#find_all_with_login_like
+is_singleton: false
+name: find_all_with_login_like
+params: (login)
+visibility: public

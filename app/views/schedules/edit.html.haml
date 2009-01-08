@@ -1,0 +1,15 @@
+%h1
+  Schedules controller, edit action
+%p
+  Edit this file in
+  %tt
+    app/views/schedules/edit.html.erb
+= error_messages_for @schedule
+
+= form_for(@schedule, :action => url(:schedule, @schedule)) do
+  %p
+    = submit "Update"
+
+= link_to 'Show', url(:schedule, @schedule)
+|
+= link_to 'Back', url(:schedules)

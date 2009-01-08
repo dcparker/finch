@@ -1,0 +1,13 @@
+- throw_content :modal_title, 'New Envelope'
+
+= error_messages_for @envelope
+
+= form_for(@envelope, :action => url(:envelopes) ) do
+  %p= text_field :name, :label => 'Name: ', :size => 24
+  %p
+    %label Type: 
+    %select{:id => 'envelope[type]', :name => 'envelope[type]'}
+      - Envelope.properties[:type].type.flag_map.values.each do |value|
+        %option{:value => value.to_s}= value.to_s.gsub(/_/,' ').capitalize
+  %p
+    = submit "Create"

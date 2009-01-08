@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: MerbAuth::Adapter::Common::InstanceMethods#deliver_email
+is_singleton: false
+name: deliver_email
+params: (action, params)
+visibility: public

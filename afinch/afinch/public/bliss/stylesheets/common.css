@@ -1,0 +1,330 @@
+/************* Base Styles ************/
+html {
+	margin: 0;
+	padding: 0;
+}
+body {
+	margin: 0;
+	padding: 0;
+}
+ul.inline li {
+	display:inline;
+}
+
+/*********** Layout ************/
+div#main_container {
+	position: absolute;
+	top: 4.4em;
+	left: 0;
+  width:100%;
+}
+div#main {
+	padding:6px;
+	z-index: 10;
+	margin:0 6px 0 220px;
+}
+div#search {
+	position: absolute;
+	top: .8em;
+	right: 1em;
+	overflow:hidden;
+}
+div#navigation {
+	position: absolute;
+	top: 9em;
+	width: 220px;
+}
+div#footer {
+	position: fixed;
+	bottom: 0;
+	width:100%;
+	z-index: 11;
+}
+div#logo {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+/*************** Header ****************/
+
+/**************** Logo ****************/
+div#logo {
+	margin: 10px;
+	padding: .9em;
+}
+div#logo p.product {
+	font-size: 28px;
+	margin: 0;
+	padding: 0;
+}
+div#logo p.company {
+	font-size: 18px;
+	margin: 0;
+	padding: 0;
+}
+div#logo h4.slogan {
+  margin-top:.2em;
+  font-style:italic;
+  font-weight:normal;
+}
+
+/************** Search **************/
+div#search label {
+	display: none;
+}
+div#search input[type="submit"] {
+	margin: 2px 1em;
+	height: 2.2em;
+	font-size: 1em;
+	padding: 0 5px;
+	vertical-align:middle;
+}
+div#search input[type="text"] {
+	width: 300px;
+	font-size: 1.2em;
+	height: 1.4em;
+	padding: 2px;
+}
+div#utilities h3 {
+	display: none;
+}
+
+/************** Content **************/
+div#main {
+	padding-bottom:2em;
+}
+div#main .content h1 {
+  font-size:2em;
+  margin:-1px -.5em .5em -.5em;
+  padding:.3em .5em;
+}
+div#main .content {
+	padding: 1px 1em 1em;
+	margin:0;
+	min-height:21em;
+}
+/* next selector is IE only */
+*div#main .content {
+  margin-bottom:-2em;
+}
+div#main .content form textarea#note_text {
+  width:50%;
+}
+div#main .content .person_listing a {
+  display:block;
+}
+div#main .content #notes ul {
+  margin:1em 0 0 0;
+  padding:0;
+}
+div#main .content #notes h5 {
+	margin:0;
+	padding:.3em 0;
+}
+div#main .content #notes p {
+	margin:.1em .4em;
+	padding:0;
+}
+div#main .content .note {
+	margin: 0;
+	border-bottom: 1px solid #ccc;
+	line-height: 1.2em;
+}
+div#main .content #notes li {
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+div#main .content div.listing ul {
+  margin:.5em 0;
+}
+div#main .content div.listing li {
+  list-style:none;
+}
+div#main .content .details h3 {
+  margin-bottom:0;
+}
+*div#main .content .details img {
+  margin:-7px 2px 0 0;
+}
+*div#main .content .person_listing a {
+  margin-right:0;
+}
+
+/*********** Tables *************/
+div#main .content table {
+  margin:0 0 1em 0;
+  padding:0;
+}
+div#main .content table th {
+  border:none;
+  padding:.2em 4em .1em 0;
+}
+div#main .content table.table {
+  width:100%;
+}
+div#main .content table tr, table td, table {
+	margin:0;
+	padding:.2em .3em .1em;
+	text-align: left;
+	line-height: 22px;
+  border:none;
+}
+div#main .content .detailed_listing div.details {
+  margin:0 10px;
+	min-width:200px;
+	float:left;
+}
+*div#main .content table.table tr td img {
+  margin:-7px 2px 0 0;
+}
+
+/*************** Navigation ***************/
+div#navigation h3 {
+	display: none;
+}
+div#navigation ul {
+	margin: 0;
+	padding: 0;
+}
+div#navigation li {
+	list-style-type: none;
+	margin-bottom:1px;
+}
+div#navigation li a {
+  display: block;
+	padding:.8em 1em .6em;
+	font-size:1.3em;
+}
+div#navigation li a img {
+  margin-right:10px;
+}
+div#navigation li.selected {
+}
+
+/*************** Footer ****************/
+div#footer {
+	text-align: center;
+	padding-top: .5em;
+}
+div#footer a {
+	padding: 0 1em;
+}
+div#footer p {
+	margin-bottom:.5em;
+}
+.footer form {
+  display:inline;
+}
+#openid_url {
+  background: url(/bliss/images/login-bg.gif) no-repeat #FFF 5px;
+  padding-left: 25px;
+}
+
+/**************** helpers ****************/
+.hide {
+	visibility: hidden;
+}
+.dim  {
+  opacity:.25;
+  filter: alpha(opacity=25);
+}
+.show {
+	visibility: visible;
+	opacity:1;
+}
+.hidden {
+	display: none;
+}
+.floatleft {
+	float: left;
+}
+.floatright {
+	float: right;
+}
+.clear {
+	clear:both;
+}
+.paginate {
+	border-top: 1px solid #ccc;
+}
+.little_note {
+  font-size:8pt;
+  margin:0;
+}
+.little_notice {
+  font-size:10pt;
+  color:#009;
+  margin:0;
+}
+.em {
+  font-style:italic;
+}
+.em a {
+  font-style:none;
+}
+.rss_button a, .rss_button {
+	padding:0;
+	margin:0;
+}
+.align-center {
+	text-align: center;
+}
+.center {
+	text-align:center;
+}
+.add {
+	float:left;
+	margin:9px 0;
+}
+div.spacer {
+  height:50px;
+}
+
+/**************** Date Selector ***************/
+table.calendar                         {width:250px; border:1px solid #ccc; background:#fff;}
+table.calendar td, table.calendar th   {text-align:center; padding:0; border-bottom:none;}
+table.calendar tr.day_header th        {background:#eee; padding:8px 0; border-top:1px solid #ccc;}
+table.calendar td                      {border:1px solid #ccc;}
+table.calendar a                       {text-decoration:none; display:block; padding:8px; color:#000;}
+table.calendar a:hover                 {background:#000; color:#fff;}
+table.calendar th  a                   {padding:10px 0;}
+table.calendar td.today  a             {background:#FFFF8B;}
+table.calendar td.today  a:hover       {background:#000; color:#fff;}
+table.calendar td.selected  a          {background:#000; color:#fff;}
+
+/*********** Flash ****************/
+div.flash {
+	text-align:left;
+	margin:10px;
+	background:#eee url("../images/icon_notice.gif") 5px 50% no-repeat;
+	font-weight:bold;
+	padding:5px;
+	padding-left:25px;
+	border: 1px solid #bbb;
+}
+div.notice {
+	color:#427924;
+}
+div.warning {
+	color:#AC1F0B;
+	background-image:url("../images/icon_warning.gif");
+}
+
+/************ Phone Number Modal **************/
+div.displayBox {
+  position:absolute;
+  top:0;
+  left:0;
+  background-color:#000;
+  opacity:0.85;
+}
+#on_screen_display {
+  display:block;
+  margin-top:5%;
+  font-size:14em;
+  text-align:center;
+  color:#fff;
+}

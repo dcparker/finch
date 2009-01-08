@@ -1,0 +1,11 @@
+- throw_content :modal_title, @envelope.is_real_account? ? 'Account Deposit' : 'Envelope Deposit'
+/ Really this creates a transaction that deposits into @envelope from user's choice of any real-account.
+= form_for(@xaction, :action => url(:xactions) ) do
+  = hidden_field :to_id, :value => @envelope.id
+  = text_field :amount, :label => "How much to deposit into #{@envelope.name}?"
+  - unless @envelope.is_real_account?
+    %label from
+    %select{:name => 'xaction[from_id]'}
+      - my(:envelopes).all(:type.not => :envelope).each do |acc|
+        %option{:value => acc.id}= acc.name
+  = submit "Deposit"

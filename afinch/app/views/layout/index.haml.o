@@ -1,0 +1,261 @@
+!!! Strict
+%html{:xmlns="http://www.w3.org/1999/xhtml", 'xml:lang'=>'en', :lang => 'en'}
+  %head
+    %meta{'http-equiv'=>"Content-Type", :content => 'text/html; charset=utf-8'}
+    %title Web GUI Framework
+    %script{:type => 'text/javascript', :charset => 'utf-8', :src => 'javascripts/jquery.js'}
+    %script{:type => 'text/javascript', :charset => 'utf-8', :src => 'javascripts/jquery-ui.js'}
+    %script{:type => 'text/javascript', :charset => 'utf-8', :src => 'javascripts/common.js'}
+    %link{:rel => 'stylesheet', :href => 'stylesheets/blueprint/screen.css', :type => 'text/css', :media => 'screen, projection'}
+    %link{:rel => 'stylesheet', :href => 'stylesheets/blueprint/print.css', :type => 'text/css', :media => 'print'}
+    / [if IE]><link rel="stylesheet" href="/stylesheets/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]
+    %link{:rel => 'stylesheet', :href => 'stylesheets/jquery-theme.css', :type => 'text/css', :media => 'screen, projection'}
+    %link{:rel => 'stylesheet', :href => 'stylesheets/common.css', :type => 'text/css', :media => 'screen, projection'}
+  %body.container
+    #header
+      %h1 Web GUI Framework
+      %ul
+        %li
+          %a{:href => '#'} Section 1
+        %li
+          %a{:href => '#'} Section 2
+        %li
+          %a{:href => '#'} Section 3
+    #center
+      %table.itu
+        %tr
+          %th Description
+          %th Detail
+          %th Stuff
+          %th Updated
+        %tr
+          %td
+            %a{:href => '#'} Stuff that should be in a description
+          %td
+            %a{:href => '#'} Because details is good
+          %td
+            %a{:href => '#'} filler stuff
+          %td
+            %a{:href => '#'} Yesterday
+        %tr
+          %td
+            %a{:href => '#'} Stuff that should be in a description
+          %td
+            %a{:href => '#'} Because details is good
+          %td
+            %a{:href => '#'} filler stuff
+          %td
+            %a{:href => '#'} Yesterday
+        %tr
+          %td
+            %a{:href => '#'} Stuff that should be in a description
+          %td
+            %a{:href => '#'} Because details is good
+          %td
+            %a{:href => '#'} filler stuff
+          %td
+            %a{:href => '#'} Yesterday
+        %tr
+          %td
+            %a{:href => '#'} Stuff that should be in a description
+          %td
+            %a{:href => '#'} Because details is good
+          %td
+            %a{:href => '#'} filler stuff
+          %td
+            %a{:href => '#'} Yesterday
+        %tr
+          %td
+            %a{:href => '#'} Stuff that should be in a description
+          %td
+            %a{:href => '#'} Because details is good
+          %td
+            %a{:href => '#'} filler stuff
+          %td
+            %a{:href => '#'} Yesterday
+        %tr
+          %td
+            %a{:href => '#'} Stuff that should be in a description
+          %td
+            %a{:href => '#'} Because details is good
+          %td
+            %a{:href => '#'} filler stuff
+          %td
+            %a{:href => '#'} Yesterday
+      %h2 Content Header H2
+      %p This is why the blue monkeys don't let pandas into their playground. It just doesn't work on a day-to-day basis.
+      %h3 Content Header H3
+      %ul.align
+        %li stuff 1
+        %li stuff 2
+        %li stuff 3
+      %h4 Content Header H4
+      %ol.align
+        %li stuff 1
+        %li stuff 2
+        %li stuff 3
+      %h4 Content Header H4
+      %h2 email header style table
+      %table.m
+        %tr
+          %td Thing:
+          %td
+            %a{:href => '#'} Ball
+        %tr
+          %td Stuff:
+          %td
+            %a{:href => '#'} Garbage
+        %tr
+          %td Place:
+          %td
+            %a{:href => '#'} Nowhere
+      %h3 Some Tab ideas
+      #some_stuff
+        %ul
+          %li.ui-tabs-nav-item
+            %a{:href => '#stuff1', :title => 'stuff1'} Stuff One
+          %li.ui-tabs-nav-item
+            %a{:href => '#stuff2', :title => 'stuff2'} Stuff Two
+          %li.ui-tabs-nav-item
+            %a{:href => '#stuff3', :title => 'stuff3'} Stuff Three
+        #stuff1
+          %h2 This is because
+          %p This is some stuff
+          %h3 Content Header H3
+          %ul.align
+            %li stuff 1
+            %li stuff 2
+            %li stuff 3
+          %h4 Content Header H4
+          %ol.align
+            %li stuff 1
+            %li stuff 2
+            %li stuff 3
+        #stuff2
+          %h3 This is because
+          %table.m
+            %tr
+              %td Thing:
+              %td
+                %a{:href => '#'} Ball
+            %tr
+              %td Stuff:
+              %td
+                %a{:href => '#'} Garbage
+            %tr
+              %td Place:
+              %td
+                %a{:href => '#'} Nowhere
+        #stuff3
+          .toolbar
+            %a{:href => '#'} New Thing
+            %a{:href => '#'} Add Stuff
+          %h3 table of stuff
+          %table.itu
+            %tr
+              %th Description
+              %th Detail
+              %th Stuff
+              %th Updated
+            %tr
+              %td
+                %a{:href => '#'} Stuff that should be in a description
+              %td
+                %a{:href => '#'} Because details is good
+              %td
+                %a{:href => '#'} filler stuff
+              %td
+                %a{:href => '#'} Yesterday
+            %tr
+              %td
+                %a{:href => '#'} Stuff that should be in a description
+              %td
+                %a{:href => '#'} Because details is good
+              %td
+                %a{:href => '#'} filler stuff
+              %td
+                %a{:href => '#'} Yesterday
+            %tr
+              %td
+                %a{:href => '#'} Stuff that should be in a description
+              %td
+                %a{:href => '#'} Because details is good
+              %td
+                %a{:href => '#'} filler stuff
+              %td
+                %a{:href => '#'} Yesterday
+            %tr
+              %td
+                %a{:href => '#'} Stuff that should be in a description
+              %td
+                %a{:href => '#'} Because details is good
+              %td
+                %a{:href => '#'} filler stuff
+              %td
+                %a{:href => '#'} Yesterday
+            %tr
+              %td
+                %a{:href => '#'} Stuff that should be in a description
+              %td
+                %a{:href => '#'} Because details is good
+              %td
+                %a{:href => '#'} filler stuff
+              %td
+                %a{:href => '#'} Yesterday
+            %tr
+              %td
+                %a{:href => '#'} Stuff that should be in a description
+              %td
+                %a{:href => '#'} Because details is good
+              %td
+                %a{:href => '#'} filler stuff
+              %td
+                %a{:href => '#'} Yesterday
+    #sidebar
+      %h2 DEVICES
+      %ul.itu
+        %li
+          %a.device{:href => '#'} Computer
+        %li
+          %a.device{:href => '#'} Computer
+        %li
+          %a.device{:href => '#'} Computer
+        %li
+          %a.device{:href => '#'} Computer
+        %li
+          %a.device{:href => '#'} Computer
+      %h2 CLIENTS
+      %ul.itu
+        %li
+          %a.person{:href => '#'} Client Smith
+        %li
+          %a.person{:href => '#'} Client Smith
+        %li
+          %a.person{:href => '#'} Client Smith
+        %li
+          %a.person{:href => '#'} Client Smith
+        %li
+          %a.person{:href => '#'} Client Smith
+        %li
+          %a.person{:href => '#'} Client Smith
+      %h2 BY STATUS
+      %ul.m
+        %li
+          %a.red_tag{:href => '#'}
+          %span 5
+        %li
+          %a.yellow_tag{:href => '#'} Closed
+        %li
+          %a.orange_tag{:href => '#'} Under
+          %span 2
+        %li
+          %a.green_tag{:href => '#'} Above
+          %span 1
+      %br
+    #footer
+      .col1
+        %a{:href => '#'} Sidebar Action
+      .col2
+        %a{:href => '#'} Center Action
+      .col3
+        %a{:href => '#'} App Action, like Logout

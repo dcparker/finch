@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>included (MerbAuth::Adapter::DataMapper::DefaultModelSetup)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/merb-auth/adapters/datamapper/model.rb, line 38</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">included</span>(<span class="ruby-identifier">base</span>)
+          <span class="ruby-identifier">base</span>.<span class="ruby-identifier">class_eval</span> <span class="ruby-keyword kw">do</span>
+            <span class="ruby-identifier">attr_accessor</span> <span class="ruby-identifier">:password</span>, <span class="ruby-identifier">:password_confirmation</span>
+
+            <span class="ruby-identifier">property</span> <span class="ruby-identifier">:id</span>,                         <span class="ruby-constant">Integer</span>,  <span class="ruby-identifier">:serial</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>
+            <span class="ruby-identifier">property</span> <span class="ruby-identifier">:login</span>,                      <span class="ruby-constant">String</span>,   <span class="ruby-identifier">:nullable</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>, <span class="ruby-identifier">:length</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">3</span><span class="ruby-operator">..</span><span class="ruby-value">40</span>, <span class="ruby-identifier">:unique</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>
+            <span class="ruby-identifier">property</span> <span class="ruby-identifier">:email</span>,                      <span class="ruby-constant">String</span>,   <span class="ruby-identifier">:nullable</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>, <span class="ruby-identifier">:unique</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>
+            <span class="ruby-identifier">property</span> <span class="ruby-identifier">:created_at</span>,                 <span class="ruby-constant">DateTime</span>
+            <span class="ruby-identifier">property</span> <span class="ruby-identifier">:updated_at</span>,                 <span class="ruby-constant">DateTime</span>
+            <span class="ruby-identifier">property</span> <span class="ruby-identifier">:activated_at</span>,               <span class="ruby-constant">DateTime</span>
+            <span class="ruby-identifier">property</span> <span class="ruby-identifier">:activation_code</span>,            <span class="ruby-constant">String</span>
+            <span class="ruby-identifier">property</span> <span class="ruby-identifier">:crypted_password</span>,           <span class="ruby-constant">String</span>
+            <span class="ruby-identifier">property</span> <span class="ruby-identifier">:salt</span>,                       <span class="ruby-constant">String</span>
+            <span class="ruby-identifier">property</span> <span class="ruby-identifier">:remember_token_expires_at</span>,  <span class="ruby-constant">DateTime</span>
+            <span class="ruby-identifier">property</span> <span class="ruby-identifier">:remember_token</span>,             <span class="ruby-constant">String</span>
+            <span class="ruby-identifier">property</span> <span class="ruby-identifier">:password_reset_key</span>,         <span class="ruby-constant">String</span>, <span class="ruby-identifier">:writer</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:protected</span>
+
+            <span class="ruby-identifier">validates_is_unique</span> <span class="ruby-identifier">:password_reset_key</span>, <span class="ruby-identifier">:if</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span> <span class="ruby-operator">!</span><span class="ruby-identifier">m</span>.<span class="ruby-identifier">password_reset_key</span>.<span class="ruby-identifier">nil?</span>}
+            <span class="ruby-identifier">validates_present</span>        <span class="ruby-identifier">:password</span>, <span class="ruby-identifier">:if</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">proc</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">password_required?</span>}
+            <span class="ruby-identifier">validates_is_confirmed</span>   <span class="ruby-identifier">:password</span>, <span class="ruby-identifier">:if</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">proc</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">password_required?</span>}
+
+            <span class="ruby-identifier">before</span> <span class="ruby-identifier">:valid?</span> <span class="ruby-keyword kw">do</span>
+              <span class="ruby-identifier">set_login</span>
+            <span class="ruby-keyword kw">end</span>
+
+            <span class="ruby-identifier">before</span> <span class="ruby-identifier">:save</span>,   <span class="ruby-identifier">:encrypt_password</span>
+            <span class="ruby-identifier">before</span> <span class="ruby-identifier">:create</span>, <span class="ruby-identifier">:make_activation_code</span>
+            <span class="ruby-identifier">after</span>  <span class="ruby-identifier">:create</span>, <span class="ruby-identifier">:send_signup_notification</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

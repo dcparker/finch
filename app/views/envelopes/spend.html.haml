@@ -1,0 +1,6 @@
+- throw_content :modal_title, 'Spend Money'
+/ Really this creates a transaction that spends from @envelope
+= form_for(@xaction, :action => url(:xactions) ) do
+  = hidden_field :from_id, :value => @envelope.id
+  = text_field :amount, :label => "How much are you spending from #{@envelope.name}?"
+  = submit "Spend"

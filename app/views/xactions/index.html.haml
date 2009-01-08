@@ -1,0 +1,16 @@
+%h1
+  Xactions controller, index action
+%p
+  Edit this file in
+  %tt
+    app/views/xactions/index.html.erb
+%table
+  %tr
+  - for xaction in @xactions
+    %tr
+      %td
+        = link_to 'Show', url(:xaction, xaction)
+      %td
+        = link_to 'Edit', url(:edit_xaction,  xaction)
+
+= link_to 'New', url(:new_xaction)

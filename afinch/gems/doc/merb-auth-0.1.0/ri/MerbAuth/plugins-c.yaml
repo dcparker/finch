@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: MerbAuth::plugins
+is_singleton: true
+name: plugins
+params: ()
+visibility: public
