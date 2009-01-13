@@ -3,7 +3,7 @@ module MoneyType
     primitive Integer
 
     def self.dump(value, property)
-      (value.to_f * 100).to_i
+      (value.to_f * 1000).to_i / 10
     end
 
     def self.load(value, property)
