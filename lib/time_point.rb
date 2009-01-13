@@ -5,9 +5,22 @@ class Time
     self
   end
 
+  # Week number in the year.
+  def week
+    ((yday + change(:month => 1, :day => 1).wday - 1) / 7) + 1
+  end
+
+  def beginning_of_week
+    (self - wday.days).beginning_of_day
+  end
+
+  def beginning_of_month
+    change(:day => 1).beginning_of_day
+  end
+
   # Week number.
   # This is obtained by rewinding to the first day of the current week (day - wday) and dividing by 7 (int division), polish by adding 1.
-  def week
+  def week_ord
     ((day - wday) / 7) + 1
   end
 end
@@ -18,7 +31,7 @@ end
 # TimePointRange, where there is a begin-TimePoint and an end-TimePoint. "Tuesdays and Thursdays" is also not a single TimePoint, but a
 # TimePointUnion. A TimePointUnion is a set of multiple, unrelated TimePoint's or TimePointRange's.
 class TimePoint
-  PRECISION_ORDER = [:second, :minute, :hour, :wday, :week, :month, :year] unless defined?(PRECISION_ORDER)
+  PRECISION_ORDER = [:second, :minute, :hour, :wday, :week_ord, :month, :year] unless defined?(PRECISION_ORDER)
   PRECISION_SCALE_ORDER = [:date, :secondly, :minutely, :hourly, :daily, :weekly, :monthly, :yearly] unless defined?(PRECISION_SCALE_ORDER)
 
   DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] unless defined?(DAYS)
@@ -68,7 +81,7 @@ class TimePoint
   end unless defined?(REVERSE_TRANSLATIONS)
 
   # These allow a TimePoint to act like a time object, but we don't have to have all of them defined!
-  attr_accessor :second, :minute, :hour, :day, :wday, :week, :month, :year
+  attr_accessor :second, :minute, :hour, :day, :wday, :week_ord, :month, :year
   # TODO: Currently you can blindly set these, but beware because the wday might not match the day/month/year on the real calendar!
 
   def self.parse(expression)
@@ -103,7 +116,7 @@ class TimePoint
         current = allocate
       when WEEKS.include?(word)
         # like First, Second, Third, Fourth, Fifth
-        current.week = WEEKS.index(word)
+        current.week_ord = WEEKS.index(word)
       when MONTHS.include?(word)
         current.month = MONTHS.index(word)
       when DAYS.include?(word)
@@ -151,7 +164,7 @@ class TimePoint
     time = times.empty? ? nil : times.join(':')
     warn super.sub(/>/,' '+instance_variables.collect {|iv| "#{iv}=#{instance_variable_get(iv).inspect}"}.join(' ')+'>')
     weekday = wday ? REVERSE_TRANSLATIONS[DAYS[wday]] : nil
-    weeknum = week ? REVERSE_TRANSLATIONS[WEEKS[week]] : nil
+    weeknum = week_ord ? REVERSE_TRANSLATIONS[WEEKS[week_ord]] : nil
     dmonth = month ? REVERSE_TRANSLATIONS[MONTHS[month]] : nil
     [time, weekday, day, weeknum, dmonth, year].compact.join(' ')
   end

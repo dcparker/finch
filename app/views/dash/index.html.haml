@@ -14,7 +14,7 @@
 #summary
   %p
     Total Available:
-    == $#{session.user.total_available.to_money}
+    == $#{session.user.total_available.to_f.to_money}
   %p
     Total Set Aside:
-    == $#{session.user.total_set_aside.to_money}
+    == $#{session.user.total_set_aside.to_f.to_money}

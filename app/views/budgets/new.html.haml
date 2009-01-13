@@ -1,0 +1,13 @@
+%h1 Budgets controller, new action
+
+%p 
+  Edit this file in 
+  %tt app/views/budgets/new.html.erb
+
+= error_messages_for @budget
+
+= form_for(@budget, :action => url(:budgets) ) do
+  %p
+    = submit "Create"
+
+= link_to 'Back', url(:budgets)

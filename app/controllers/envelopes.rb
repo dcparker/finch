@@ -51,7 +51,8 @@ class Envelopes < Application
     render :layout => 'modal'
   end
   def budget(id)
-    envelope(id)
+    @budget = envelope(id).budget
+    @budget.save if @budget.new_record?
     render :layout => 'modal'
   end
 
@@ -77,6 +78,6 @@ class Envelopes < Application
 
   private
     def envelope(id)
-      @envelope = Envelope.first(:id => id, :user_id => my(:id))
+      @envelope ||= Envelope.first(:id => id, :user_id => my(:id))
     end
 end # Envelopes

@@ -1,4 +1,6 @@
 .floatleft {float:left}
+.floatright {float:right}
+.X {float:right; position:relative; top:-5em; left:-1.6em; color:red; font-weight:bold; border:1px dotted red; opacity:.3;}
 
 #body {margin-left:50%;width:32em}
 .body {margin-left:-100%}
@@ -15,7 +17,6 @@ div.body li {
 }
 
 div#envelopes {
-/*  border:2px solid #fe7;*/
   margin:.75em;
 }
 
@@ -37,7 +38,7 @@ div.envelope.real_account {
 }
 div.envelope * {background:none}
 div.envelope > div {
-  padding-top:62px;
+  padding-top:42px;
   height:100%;
   background-color:rgba(255,255,255,.65);
 }
@@ -46,11 +47,15 @@ div.envelope p {
   padding:0;
 }
 div.envelope p.name {
+  clear:both;
   font-weight:bold;
 }
 div.envelope p.amount {
   font-style:italic;
   font-size:11pt;
+}
+div.envelope p.budget {
+  color:#666;
 }
 
 .clear {

@@ -1,0 +1,15 @@
+%h1
+  Budgets controller, edit action
+%p
+  Edit this file in
+  %tt
+    app/views/budgets/edit.html.erb
+= error_messages_for @budget
+
+= form_for(@budget, :action => url(:budget, @budget)) do
+  %p
+    = submit "Update"
+
+= link_to 'Show', url(:budget, @budget)
+|
+= link_to 'Back', url(:budgets)

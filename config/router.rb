@@ -27,13 +27,14 @@
 
 Merb.logger.info("Compiling routes...")
 Merb::Router.prepare do
-  resources :xactions
   resources :envelopes do
     member :spend
     member :deposit
     member :withdraw
     member :budget
   end
+  resources :xactions
+  resources :budgets
   resources :schedules
 
   # Adds the required routes for merb-auth using the password slice

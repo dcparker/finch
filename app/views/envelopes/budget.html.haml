@@ -1,2 +1,5 @@
-== Your Budget for #{@envelope.name}
-/ Manage the budget schedule for @envelope.
+- throw_content :modal_title, "Budget for #{@envelope.name}"
+/ Manage the budgeted amount for @envelope.
+= form_for(@budget, :action => url(:budget, @budget), :method => :put) do
+  = text_field :amount, :label => "How much should be in the '#{@envelope.name}' envelope?"
+  = submit "Budget"

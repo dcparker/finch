@@ -3,3 +3,10 @@ The way this works:
 An Envelope holds actual money and is tied to a current budget record.
 A Budget record is a single budget period with an amount budgeted for that period.
 A Schedule maintains a budget schedule, automatically creates new budgets as the periods arrive, and assigns the Envelope to the current budget period.
+
+
+__ ROADMAP __
+X	1) Simple envelopes - deposit actual money, distribute to envelopes waiting to be spent.
+X	2) Static budgets - record on an envelope how much it SHOULD contain.
+	3) Recurring budgets - every X period of time the budget SHOULD be reset to Y dollars.
+	4) Tagged transactions

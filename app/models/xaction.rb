@@ -26,7 +26,10 @@ class Xaction
       return true
     end
     def update_envelope_balances
-      from.update_attributes(:actual_amount => from.actual_amount - amount) if from
-      to.update_attributes(:actual_amount => to.actual_amount + amount) if to
+      if from
+        from.budget.update_attributes(:amount => amount < from.budget.amount.to_f ? from.budget.amount.to_f - amount : 0) unless to # If spending, take it out of the current budget too.
+        from.update_attributes(:actual_amount => from.actual_amount.to_f - amount)
+      end
+      to.update_attributes(:actual_amount => to.actual_amount.to_f + amount) if to
     end
 end

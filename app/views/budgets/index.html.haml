@@ -1,0 +1,16 @@
+%h1
+  Budgets controller, index action
+%p
+  Edit this file in
+  %tt
+    app/views/budgets/index.html.erb
+%table
+  %tr
+  - for budget in @budgets
+    %tr
+      %td
+        = link_to 'Show', url(:budget, budget)
+      %td
+        = link_to 'Edit', url(:edit_budget,  budget)
+
+= link_to 'New', url(:new_budget)
