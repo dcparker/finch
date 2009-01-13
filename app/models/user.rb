@@ -10,10 +10,17 @@
 # You will need to setup your database and create a user.
 class User
   include DataMapper::Resource
-  
-  property :id,     Serial
-  property :login,  String
+  property :id, Serial
+  property :name, String
+  property :email, String
+  property :identity_url, String, :nullable => false, :default => 'you.example.com'
+ 
   has n, :envelopes
+
+  validates_is_unique :identity_url
+  validates_is_unique :name
+  validates_is_unique :email
+  def password_required?; false end
 
   def total_available
     envelopes.all(:type.not => :envelope).inject(0) {|sum,a| sum + a.actual_amount}

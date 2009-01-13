@@ -17,3 +17,4 @@ src/*
 .svn/*
 Capfile
 config/deploy.rb
+tmp/openid/*

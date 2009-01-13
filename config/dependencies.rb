@@ -11,7 +11,7 @@ dependency "merb-mailer", merb_gems_version
 dependency "merb-slices", merb_gems_version
 dependency "merb-auth-core", merb_gems_version
 dependency "merb-auth-more", merb_gems_version
-dependency "merb-auth-slice-password", merb_gems_version
+# dependency "merb-auth-slice-password", merb_gems_version
 dependency "merb-param-protection", merb_gems_version
 dependency "merb-exceptions", merb_gems_version
 dependency "dm-core", dm_gems_version
@@ -20,3 +20,6 @@ dependency "dm-migrations", dm_gems_version
 dependency "dm-timestamps", dm_gems_version
 dependency "dm-types", dm_gems_version
 dependency "dm-validations", dm_gems_version
+
+gem "ruby-openid", '=2.1.2'
+require 'openid'

@@ -1,7 +1,9 @@
 #envelopes
-  .floatleft
-    %h2 Accounts
-    = partial 'envelopes/envelope', :with => my(:envelopes).all(:type.not => :envelope)
+  - accounts = my(:envelopes).all(:type.not => :envelope)
+  - unless accounts.empty?
+    .floatleft
+      %h2 Accounts
+      = partial 'envelopes/envelope', :with => accounts
     .clear
   .floatleft
     %h2 Envelopes

@@ -1,7 +1,10 @@
 # Go to http://wiki.merbivore.com/pages/init-rb
  
-require 'config/dependencies.rb'
- 
+require File.dirname(__FILE__) + "/rubundler"
+r = Rubundler.new
+r.setup_env
+r.setup_requirements
+
 use_orm :datamapper
 use_test :rspec
 use_template_engine :haml
@@ -24,4 +27,5 @@ end
  
 Merb::BootLoader.after_app_loads do
   # This will get executed after your app's classes have been loaded.
+  DataMapper.auto_upgrade!
 end
