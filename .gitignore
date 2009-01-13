@@ -16,3 +16,5 @@ src/*
 .hgignore
 .hg/*
 .svn/*
+Capfile
+config/deploy.rb
