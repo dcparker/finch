@@ -7,4 +7,5 @@
         %a.modal_link{:href => url(:deposit_envelope, real_account)} Deposit
       %li
         %a.modal_link{:href => url(:withdraw_envelope, real_account)} Withdraw
-    %span.X &nbsp;X&nbsp;
+    - if envelope.actual_amount.to_f == 0
+      %span.X &nbsp;X&nbsp;

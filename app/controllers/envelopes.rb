@@ -72,7 +72,7 @@ class Envelopes < Application
     if @envelope.destroy
       redirect resource(:envelopes)
     else
-      raise InternalServerError
+      raise InternalServerError, @envelope.inspect
     end
   end
 

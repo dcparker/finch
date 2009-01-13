@@ -18,4 +18,5 @@
           %a.modal_link{:href => url(:withdraw_envelope, envelope)} Withdraw
         %li
           %a.modal_link{:href => url(:budget_envelope, envelope)} Budget
-      %span.X &nbsp;X&nbsp;
+      - if envelope.actual_amount.to_f == 0
+        %span.X &nbsp;X&nbsp;
