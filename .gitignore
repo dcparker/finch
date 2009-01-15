@@ -18,3 +18,4 @@ src/*
 Capfile
 config/deploy.rb
 tmp/openid/*
+config/database.yml
