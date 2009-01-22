@@ -31,6 +31,6 @@ class User
   end
 
   def total_budgeted
-    envelopes.all(:type => :envelope).inject(0) {|sum,a| sum + a.budget_amount}
+    envelopes.all(:type => :envelope).inject(0) {|sum,a| sum + a.budget.amount}
   end
 end
