@@ -9,6 +9,9 @@ $:.unshift("/usr/lib/ruby/1.8/")
 ENV['GEM_PATH'] = '/home/dcparker/.gem/' # your local gem home
 
 require 'rubygems'
+  Gem.clear_paths
+  Gem.path.unshift(ENV['GEM_PATH'])
+gem 'merb-core', '1.0.7.1'
 require 'merb-core'
 
 Merb::Config.setup(:merb_root => File.expand_path(File.dirname(__FILE__)),
