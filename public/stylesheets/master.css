@@ -2,7 +2,7 @@
 .floatright {float:right}
 .X {float:right; position:relative; top:-5em; left:-1.6em; color:red; font-weight:bold; border:1px dotted red; opacity:.3;}
 
-#body {margin-left:50%;width:34em}
+#body {margin-left:50%;width:35em}
 .body {margin-left:-100%}
 
 div.body {
