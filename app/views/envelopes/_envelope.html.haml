@@ -1,6 +1,6 @@
 - if envelope.is_account?
   = partial 'envelopes/real_account', :with => envelope
-- else
+- elsif envelope.actual_amount > 0
   %div.envelope{:id => "envelope_#{envelope.id}"}
     %div
       %p.name= envelope.name
@@ -13,10 +13,10 @@
         %li
           %a.modal_link{:href => url(:spend_envelope, envelope)} Spend
         %li
-          %a.modal_link{:href => url(:deposit_envelope, envelope)} Deposit
+          %a.modal_link{:href => url(:add_transaction_envelope, envelope)} Add Transaction
+        %li
+          %a.modal_link{:href => url(:show_transactions_envelope, envelope)} View Transactions
         %li
           %a.modal_link{:href => url(:withdraw_envelope, envelope)} Withdraw
         %li
           %a.modal_link{:href => url(:budget_envelope, envelope)} Budget
-      - if envelope.actual_amount.to_f == 0
-        %span.X &nbsp;X&nbsp;

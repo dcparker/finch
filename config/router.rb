@@ -10,6 +10,8 @@ Merb::Router.prepare do
     member :deposit
     member :withdraw
     member :budget
+    member :add_transaction
+    member :show_transactions
   end
   resources :xactions
   resources :budgets
