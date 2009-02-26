@@ -1,7 +1,7 @@
 - if envelope.is_account?
   = partial 'envelopes/real_account', :with => envelope
-- elsif envelope.actual_amount > 0
-  %div.envelope{:id => "envelope_#{envelope.id}"}
+- else
+  .envelope.just_envelope{:id => "envelope_#{envelope.id}"}
     %div
       %p.name= envelope.name
       %p.amount== $#{envelope.actual_amount}

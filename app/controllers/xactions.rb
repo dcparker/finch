@@ -26,7 +26,7 @@ class Xactions < Application
   end
 
   def create(xaction)
-    @xaction = Xaction.new(xaction.merge(:user_id => my(:id)))
+    @xaction = Xaction.new({'completed' => false}.merge(xaction).merge(:user_id => my(:id)))
     if @xaction.save
       redirect '/'
     else

@@ -6,16 +6,18 @@ App.Modal.make = function(html){
 };
 App.Modal.create = function(html){
   $('#modal').remove();
-  $('#overlay_container').remove();
+  // $('#overlay_container').remove();
   $(html).appendTo($('body'));
 };
 App.Modal.show = function(){
-  $('#overlay_container').addClass('show');
-  $('#modal_overlay').click(App.Modal.hide);
-  $('#modal').fadeIn('slow').addClass('show').keypress(App.Model.keypress);
+  // $('#overlay_container').addClass('show');
+  // $('#modal_overlay').click(App.Modal.hide);
+  $('#modal').fadeIn('slow').addClass('show').keypress(App.Modal.keypress);
+  $('#modal .top_right_corner').css({'cursor':'pointer'}).click(App.Modal.hide);
+  // $('#modal .top_bar').drag(alert);
 };
 App.Modal.hide = function(){
-  $('#overlay_container').fadeOut('slow',function(){$(this).removeClass('show')});
+  // $('#overlay_container').fadeOut('slow',function(){$(this).removeClass('show')});
   $('#modal').fadeOut('normal',function(){$(this).removeClass('show')});
 };
 App.Modal.keypress = function(e){

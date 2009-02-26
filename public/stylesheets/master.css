@@ -16,6 +16,11 @@ div.body li {
   margin-left:2em;
 }
 
+#dollar_sign {
+  padding:20px;
+  float:left;
+}
+
 div#envelopes {
   margin:.75em;
 }
@@ -62,72 +67,11 @@ div.envelope p.budget {
   clear:both;
 }
 
-/* MODAL */
-.modal_link {
-  cursor:pointer;
-}
+/* DIALOG */
+#dialog-title {display:none}
+#dialog input[type=checkbox] {font-size:24pt}
+/* END DIALOG */
 
-#modal {
-  display:none;
-}
-
-#overlay_container {
-  display:none;
-  opacity:0;
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  z-index:1000;
-}
-
-#overlay_container.show {
-  display:block;
-  opacity:1;
-}
-
-#modal_overlay {
-  display:block;
-  background-color:#000;
-  width:100%;
-  height:100%;
-  opacity:0.1;
-  z-index:1001;
-}
-
-#modal.show {
-  display:block;
-  opacity:1;
-  width:600px;
-  height:200px;
-  border:#cce;
-  background-color:#ddf;
-  position:absolute;
-  top:0;
-  left:50%;
-  margin-left:-300px;
-  margin-top:25%;
-  z-index:1002;
-}
-
-#modal h1 {
-  font-size:14pt;
-  font-family: Arial, Verdana, sans-serif;
-  color:#331;
-  font-weight:normal;
-  margin:0;
-  padding:.4em 0 .3em .5em;
-}
-
-#modal .modal_content {
-  padding:1em;
-}
-
-#modal .top_left_corner {
-  background-color:#aaf;
-}
-/* END MODAL */
 
 /* CLICK-MENUS */
 ul.clickmenu {

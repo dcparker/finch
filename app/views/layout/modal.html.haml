@@ -1,9 +1,9 @@
-#overlay_container
-  #modal_overlay
 #modal
-  .top_left_corner
-    %h1= catch_content :modal_title
+  .top_bar
     .top_right_corner
+      %img{:src => '/images/close_button-sm.png', :width => 40}
+    .top_left_corner
+      %h1= catch_content :modal_title
   .modal_content= catch_content :for_layout
   .bottom_bar
   .bottom_left_corner

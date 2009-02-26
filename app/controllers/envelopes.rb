@@ -15,7 +15,7 @@ class Envelopes < Application
   def new
     only_provides :html
     @envelope = Envelope.new
-    display @envelope, params[:layout] == 'modal' ? {:layout => 'modal'} : {}
+    display @envelope, params[:layout] ? {:layout => params[:layout]} : {}
   end
 
   def edit(id)
@@ -38,22 +38,22 @@ class Envelopes < Application
   def spend(id)
     envelope(id)
     @xaction = Xaction.new(:from_id => id)
-    render :layout => 'modal'
+    render :layout => params[:layout]
   end
   def deposit(id)
     envelope(id)
     @xaction = Xaction.new(:to_id => id)
-    render :layout => 'modal'
+    render :layout => params[:layout]
   end
   def withdraw(id)
     envelope(id)
     @xaction = Xaction.new(:from_id => id)
-    render :layout => 'modal'
+    render :layout => params[:layout]
   end
   def budget(id)
     @budget = envelope(id).budget
     @budget.save if @budget.new_record?
-    render :layout => 'modal'
+    render :layout => params[:layout]
   end
 
   def update(id, envelope)

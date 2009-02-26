@@ -1,0 +1,26 @@
+#dialog-title= @from ? "Transfer#{' from '+@from.name if @from}#{' to '+@to.name if @to}" : "Deposit to #{@to.name}"
+%form#dialog-form{:action => '/xactions', :method => 'POST'}
+  - if @from
+    %input{:type => 'hidden', :name => 'xaction[from_id]', :value => @from.id}
+  - if @to
+    %input{:type => 'hidden', :name => 'xaction[to_id]', :value => @to.id}
+  %p
+    %label
+      Amount:
+      %input{:type => 'text', :size => 6, :name => 'xaction[amount]'}
+      - if @from
+        == ($#{@from.actual_amount} available)
+  - if @from && !@to.is_account?
+    %p
+      %label
+        Description:
+        %input{:type => 'text', :name => 'xaction[description]'}
+    %p
+      %label
+        Completed?
+        %input{:type => 'checkbox', :name => 'xaction[completed]', :onchange => "$('#transaction_date_p').toggle('fast')"}
+    %p#transaction_date_p
+      %label
+        Pending until:
+        %input#transaction_date{:type => 'text', :size => 10, :name => 'xaction[date]'}
+        %span.date_picker{:style => 'font-size:11px'}
