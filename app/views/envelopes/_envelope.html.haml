@@ -4,11 +4,11 @@
   %div.envelope{:id => "envelope_#{envelope.id}"}
     %div
       %p.name= envelope.name
-      %p.amount== $#{envelope.actual_amount.to_f.to_money}
+      %p.amount== $#{envelope.actual_amount}
       %p.budget
         &nbsp;
-        - if envelope.budget && envelope.budget.amount.to_f > 0
-          == of $#{envelope.budget.amount.to_f.to_money}
+        - if envelope.budget && envelope.budget.amount > 0
+          == of $#{envelope.budget.amount}
       %ul.clickmenu
         %li
           %a.modal_link{:href => url(:spend_envelope, envelope)} Spend

@@ -1,11 +1,11 @@
 %div.envelope.real_account{:id => "envelope_#{real_account.id}"}
   %div
     %p.name= real_account.name
-    %p.amount== $#{real_account.actual_amount.to_money}
+    %p.amount== $#{real_account.actual_amount}
     %ul.clickmenu
       %li
         %a.modal_link{:href => url(:deposit_envelope, real_account)} Deposit
       %li
         %a.modal_link{:href => url(:withdraw_envelope, real_account)} Withdraw
-    - if real_account.actual_amount.to_f == 0
+    - if real_account.actual_amount == 0
       %span.X &nbsp;X&nbsp;

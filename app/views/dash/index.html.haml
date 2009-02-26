@@ -7,7 +7,7 @@
     .clear
     %p
       Total Available:
-      == $#{session.user.total_available.to_f.to_money}
+      == $#{session.user.total_available}
   .floatleft
     %h2 Envelopes
     = partial 'envelopes/envelope', :with => my(:envelopes).all(:type => :envelope)
@@ -18,7 +18,7 @@
   .clear
   %p
     Total Set Aside:
-    == $#{session.user.total_set_aside.to_f.to_money}
+    == $#{session.user.total_set_aside}
   %p
     Total Budgeted:
-    == $#{session.user.total_budgeted.to_f.to_money}
+    == $#{session.user.total_budgeted}
