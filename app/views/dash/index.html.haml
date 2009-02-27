@@ -2,7 +2,6 @@
   - accounts = my(:envelopes).all(:type.not => :envelope)
   - unless accounts.empty?
     %img#dollar_sign{:src => '/images/dollar_sign2.png'}
-    %a{:href => "javascript:void(0)", :onclick => "Finch.reloadEnvelopes()"} reload
     .floatleft
       %h2 Accounts
       = partial 'envelopes/envelope', :with => accounts
