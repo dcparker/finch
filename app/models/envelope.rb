@@ -18,4 +18,8 @@ class Envelope
   def budget
     @budget ||= (Budget.first(:envelope_id => id, :effective_start.lte => Time.now, :effective_end.gte => Time.now) || Budget.new(:envelope_id => id, :user_id => user_id, :amount => 0.0, :effective_start => Budget.current_period_start(budget_period), :effective_end => Budget.current_period_end(budget_period)))
   end
+
+  def amount_available
+    Money.new((Xaction.all(:from_id => id, :completed => false).inject(actual_amount) {|sum,x| sum = sum - x.amount} * 100).to_i)
+  end
 end
