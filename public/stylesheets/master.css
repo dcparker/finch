@@ -67,6 +67,11 @@ div.envelope p.budget {
   clear:both;
 }
 
+.error_message {
+  color:#d00;
+}
+
+
 /* DIALOG */
 #dialog-title {display:none}
 #dialog input[type=checkbox] {font-size:24pt}

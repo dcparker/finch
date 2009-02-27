@@ -25,7 +25,8 @@ class Xaction
 
   private
     def verify_source_balance
-      return [false, "There is not enough funds in #{from.name} to take #{amount} out of it."] if new_record? && from && from.actual_amount - amount < 0
+      original_amount = new_record? ? Money.new(0) : Xaction.get(id).amount
+      return [false, "Not enough funds available."] if from && from.amount_available + original_amount - amount < 0
       return true
     end
 

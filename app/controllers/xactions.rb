@@ -30,8 +30,7 @@ class Xactions < Application
     if @xaction.save
       redirect '/'
     else
-      message[:error] = "Xaction failed to be created"
-      render :new
+      render '<span class="error_message">'+@xaction.errors.full_messages.join(', ')+'</span>', :status => 400, :layout => false
     end
   end
 

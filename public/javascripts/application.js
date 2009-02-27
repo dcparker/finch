@@ -46,25 +46,24 @@ var new_xaction = function(event, ui) {
       dateFormat: 'mm/dd/yy',
       altField: '#transaction_date'
     });
+    $('#dialog-form').ajaxForm({
+      // Send to the website, wait for the response, then close the dialog and reload the data for the page.
+      beforeSend: function(){
+        $('img#dollar_sign').clone().appendTo('#dialog ui-dialog-buttonpane');
+      },
+      success: function(){
+        $('#dialog').dialog('close');
+      },
+      error: function(xhr){
+        $('#dialog-form').append(xhr.responseText);
+      }
+    });
     $('#dialog').dialog({
       modal: true,
       width: 460,
       title: $('#dialog-title').text(),
       buttons: {
-        Ok: function(){
-          // Send to the website, wait for the response, then close the dialog and reload the data for the page.
-          $('#dialog-form').ajaxSubmit({
-            beforeSend: function(){
-              $('img#dollar_sign').clone().appendTo('#dialog ui-dialog-buttonpane');
-            },
-            success: function(){
-              $('#dialog').dialog('close');
-            },
-            error: function(html){
-              alert(html);
-            }
-          });
-        },
+        Save:   function(){ $('#dialog-form').submit() },
         Cancel: function(){$('#dialog').dialog('close')}
       }
     });
@@ -82,25 +81,24 @@ var new_deposit = function(event, ui) {
       dateFormat: 'mm/dd/yy',
       altField: '#transaction_date'
     });
+    $('#dialog-form').ajaxForm({
+      // Send to the website, wait for the response, then close the dialog and reload the data for the page.
+      beforeSend: function(){
+        $('img#dollar_sign').clone().appendTo('#dialog ui-dialog-buttonpane');
+      },
+      success: function(){
+        $('#dialog').dialog('close');
+      },
+      error: function(html){
+        alert(html);
+      }
+    });
     $('#dialog').dialog({
       modal: true,
       width: 460,
       title: $('#dialog-title').text(),
       buttons: {
-        Ok: function(){
-          // Send to the website, wait for the response, then close the dialog and reload the data for the page.
-          $('#dialog-form').ajaxSubmit({
-            beforeSend: function(){
-              $('img#dollar_sign').clone().appendTo('#dialog ui-dialog-buttonpane');
-            },
-            success: function(){
-              $('#dialog').dialog('close');
-            },
-            error: function(html){
-              alert(html);
-            }
-          });
-        },
+        Save:   function(){ $('#dialog-form').submit() },
         Cancel: function(){$('#dialog').dialog('close')}
       }
     });
