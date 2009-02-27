@@ -41,11 +41,11 @@ class Xaction
         if !new_record? && dirty_attributes.keys.include?(Xaction.properties[:amount])
           if completed
             # update the debited account
-            diff = Xaction.get(id).amount - amount
+            diff = amount - Xaction.get(id).amount
             from.update_attributes(:actual_amount => from.actual_amount.to_f + diff)
           else
             # update the envelope amount
-            diff = Xaction.get(id).amount - amount
+            diff = amount - Xaction.get(id).amount
             to.update_attributes(:actual_amount => to.actual_amount.to_f + diff)
           end
         end

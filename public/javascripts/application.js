@@ -9,7 +9,11 @@ drag_options = {
   helper:function(){return $('img#dollar_sign').clone().css({display:'block'})},
   revert: true
 };
-$("#dollar_sign").draggable(drag_options);
+$("#dollar_sign").draggable({
+  cursor:'pointer',
+  helper:'clone',
+  revert: true
+});
 $(".real_account").draggable(drag_options);
 $('.just_envelope').draggable(drag_options);
 

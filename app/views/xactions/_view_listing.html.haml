@@ -4,5 +4,6 @@
     %span.editable{:name => 'xaction[amount]', :size => 5}= view_listing.amount
     \:
     %span.editable{:name => 'xaction[description]', :size => 25}= view_listing.description
+    %input{:type => 'submit', :style => 'position:absolute;visibility:hidden', :value => 'Save'}
     %a{:href => 'javascript:void(0)', :onclick => "Finch.editXaction(#{view_listing.id})"} (edit)
     %input{:type => 'checkbox', :onchange => "Finch.completeXaction(#{view_listing.id})"}
