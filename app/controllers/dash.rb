@@ -1,5 +1,4 @@
 class Dash < Application
-
   before :ensure_authenticated
 
   def index
@@ -9,6 +8,10 @@ class Dash < Application
   def show_dialog
     send(params[:dialog_name]) if private_methods.include?(params[:dialog_name])
     render(params[:dialog_name].to_sym, :layout => 'dialog')
+  end
+
+  def template
+    partial "templates/#{params[:template_name]}"
   end
 
   private

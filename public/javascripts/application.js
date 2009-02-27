@@ -5,9 +5,9 @@ jQuery(function(){var $ = jQuery;
 var dragging = null;
 drag_options = {
   cursor:'pointer',
-  cursorAt: { left: 30, top: 25 },
-  helper:function(){return $('img#dollar_sign').clone().css({display:'block'})},
-  revert: true
+  cursorAt:{left:50,top:47},
+  helper:function(){return $('img#dollar_sign').clone()},
+  revert:true
 };
 $("#dollar_sign").draggable({
   cursor:'pointer',
@@ -29,6 +29,7 @@ var view_xactions = function(event, ui) {
       modal: true,
       width: 460,
       title: $('#dialog-title').text(),
+      close: function(){if(Finch.reload)location.reload()},
       buttons: { Done:function(){$('#dialog').dialog('close')} }
     });
   }});
@@ -52,6 +53,7 @@ var new_xaction = function(event, ui) {
         $('img#dollar_sign').clone().appendTo('#dialog ui-dialog-buttonpane');
       },
       success: function(){
+        Finch.reloadEnvelopes();
         $('#dialog').dialog('close');
       },
       error: function(xhr){
@@ -62,6 +64,7 @@ var new_xaction = function(event, ui) {
       modal: true,
       width: 460,
       title: $('#dialog-title').text(),
+      close: function(){if(Finch.reload)location.reload()},
       buttons: {
         Save:   function(){ $('#dialog-form').submit() },
         Cancel: function(){$('#dialog').dialog('close')}
@@ -87,6 +90,7 @@ var new_deposit = function(event, ui) {
         $('img#dollar_sign').clone().appendTo('#dialog ui-dialog-buttonpane');
       },
       success: function(){
+        Finch.reloadEnvelopes();
         $('#dialog').dialog('close');
       },
       error: function(html){
@@ -97,6 +101,7 @@ var new_deposit = function(event, ui) {
       modal: true,
       width: 460,
       title: $('#dialog-title').text(),
+      close: function(){if(Finch.reload)location.reload()},
       buttons: {
         Save:   function(){ $('#dialog-form').submit() },
         Cancel: function(){$('#dialog').dialog('close')}
@@ -135,6 +140,7 @@ $(".just_envelope").dblclick(function(){
       modal: true,
       width: 460,
       title: $('#dialog-title').text(),
+      close: function(){if(Finch.reload)location.reload()},
       buttons: { Done:function(){$('#dialog').dialog('close')} }
     });
   }});
@@ -148,6 +154,7 @@ $(".real_account").dblclick(function(){
       modal: true,
       width: 460,
       title: $('#dialog-title').text(),
+      close: function(){if(Finch.reload)location.reload()},
       buttons: { Done:function(){$('#dialog').dialog('close')} }
     });
   }});
@@ -188,11 +195,12 @@ $(".real_account").dblclick(function(){
 });
 
 var Finch = {
+  reload:false,
   editXaction:function(xaction_id){
     // Make a form out of it.
     $('#xaction_'+xaction_id+' form').ajaxForm({
       success:function(){
-        console.log(this);
+        Finch.reloadEnvelopes();
         $('#xaction_'+xaction_id+' form input[type=text]').each(function(){
           $(this).replaceWith($(this).val());
         });
@@ -205,7 +213,67 @@ var Finch = {
   },
   completeXaction:function(xaction_id){
     $.ajax({url:'/xactions/'+xaction_id,type:'put',data:{'xaction[completed]':true},success:function(html){
-      $('#xaction_'+xaction_id).slideUp('slow');
+      $('#xaction_'+xaction_id).fadeOut('slow',function(){
+        $(this).remove();
+        Finch.reloadEnvelopes();
+        // Close the dialog box if this is the last Xaction.
+        if($('#pending_xactions').children().length == 0){
+          $('#dialog').dialog('close');
+        }
+      });
     }});
+  },
+  reloadEnvelopes:function(){
+    if($('#dialog').dialog('isOpen')){
+      Finch.reload=true;
+    }else{
+      // Build a way to reload Envelopes using Ajax
+      location.reload();
+      // Get json data
+      // $.getJSON('/envelopes.json', function(data){
+      //   // Insert into all existing envelopes
+      //   data.envelopes.each(function(){
+      //     CachedUrl.get('/templates/envelope',function(template){
+      //       
+      //     });
+      //   });
+      // });
+      // * * * *
+      Finch.reload=false;
+    }
+  }
+};
+
+var CachedUrl = (function(){
+  var cache = {};
+  var that = this;
+  
+  this.get = function(url,callback){
+    if(defined(cache[url])){
+      callback.call(cache[url]);
+    }else{
+      $.ajax({url:url,success:function(html){
+        cache[url] = html;
+        callback.call(html);
+      }});
+    }
+  };
+})();
+
+var Template = {
+  parse:function(template,data){
+    var again = true;
+    console.log(pos);
+    // while(again){
+      var pos = template.indexOf('[[');
+      if(pos == -1){
+        again = false;
+      }else{
+        var end_pos = template.indexOf(']]',pos);
+        var name = template.substring(pos+2,end_pos);
+        template.replace('[['+name+']]',data[name]);
+      }
+    // }
+    return template;
   }
 };

@@ -1,9 +1,21 @@
 class Envelopes < Application
-  # provides :xml, :yaml, :js
+  provides :json
 
   def index
     @envelopes = Envelope.all(:user_id => my(:id))
-    display @envelopes
+    if content_type == :json
+      display({
+        'envelopes' => @envelopes.collect {|e| {
+          'id' => e.id,
+          'name' => e.name,
+          'type' => e.type,
+          'actual_amount' => e.actual_amount,
+          'amount_available' => e.amount_available
+        }}
+      })
+    else
+      display @envelopes
+    end
   end
 
   def show(id)

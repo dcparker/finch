@@ -9,7 +9,7 @@
       Amount:
       %input{:type => 'text', :size => 6, :name => 'xaction[amount]'}
       - if @from
-        == ($#{@from.actual_amount} available)
+        == ($#{@from.amount_available} available)
   - if @from && !@to.is_account?
     %p
       %label

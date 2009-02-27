@@ -17,6 +17,9 @@ div.body li {
 }
 
 #dollar_sign {
+  position:absolute;
+  top:100px;
+  left:285px;
   padding:20px;
   float:left;
 }

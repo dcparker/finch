@@ -18,6 +18,7 @@ Merb::Router.prepare do
   resources :schedules
 
   match('/dialogs/:dialog_name').to(:controller => :dash, :action => :show_dialog)
+  match('/templates/:template_name').to(:controller => :dash, :action => :template)
 
   # Home
   match('/').to(:controller => "dash")

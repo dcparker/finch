@@ -20,6 +20,6 @@ class Envelope
   end
 
   def amount_available
-    Money.new((Xaction.all(:from_id => id, :completed => false).inject(actual_amount) {|sum,x| sum = sum - x.amount} * 100).to_i)
+    @amount_available ||= is_account? ? Money.new((Xaction.all(:from_id => id, :completed => false).inject(actual_amount) {|sum,x| sum = sum - x.amount} * 100).to_i) : actual_amount
   end
 end
