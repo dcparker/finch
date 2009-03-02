@@ -1,0 +1,13 @@
+#dialog-title New Envelope
+
+%form#dialog-form{:action => '/envelopes', :method => 'POST'}
+  %input{:type => 'submit', :style => 'position:absolute;visibility:hidden', :value => 'Save'}
+  %p
+    %label
+      Name:
+      %input{:type => 'text', :name => 'envelope[name]', :size => 24}
+  %p
+    %label Type: 
+    %select{:id => 'envelope[type]', :name => 'envelope[type]'}
+      - Envelope.properties[:type].type.flag_map.values.map {|s|s.to_s}.sort.each do |value|
+        = "<option value=\"#{value}\"#{' selected=selected' if value=='envelope'}>#{value.gsub(/_/,' ').capitalize}</option>"
