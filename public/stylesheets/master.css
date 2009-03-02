@@ -24,6 +24,10 @@ div.body li {
   float:left;
 }
 
+#new_envelope {
+  cursor:pointer;
+}
+
 div#envelopes {
   margin:.75em;
 }

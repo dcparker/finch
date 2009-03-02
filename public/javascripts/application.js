@@ -160,6 +160,22 @@ $(".real_account").dblclick(function(){
   }});
 });
 
+$('#new_envelope').click(function(){
+  $.ajax({url:'/dialogs/new_envelope',type:'get',success:function(html){
+    $('#dialog').remove();
+    $(html).appendTo($('body'));
+    $('#dialog').dialog({
+      modal: true,
+      width: 460,
+      title: $('#dialog-title').text(),
+      close: function(){if(Finch.reload)location.reload()},
+      buttons: {
+        Create:function(){Finch.reloadEnvelopes();$('#dialog').dialog('close')},
+        Cancel:function(){$('#dialog').dialog('close')}
+      }
+    });
+  }});
+});
 
 // TODO: The menu and modal links won't be needed anymore once we get the rest of the functions built.
 // $('a, .modal_link').each(function(){

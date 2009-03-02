@@ -1,4 +1,5 @@
 class Dash < Application
+  before :auto_login if Merb.env == 'development'
   before :ensure_authenticated
 
   def index
@@ -15,6 +16,10 @@ class Dash < Application
   end
 
   private
+    def auto_login
+      session[:user] = User.first.id
+    end
+
     def new_transaction
       from_id = params[:from_id].to_s.gsub(/\D/,'').to_i
       to_id = params[:to_id].to_s.gsub(/\D/,'').to_i

@@ -12,7 +12,7 @@
   .floatleft
     %h2 Envelopes
     = partial 'envelopes/envelope', :with => my(:envelopes).all(:type => :envelope)
-    %div.envelope.modal_link{:href => url(:new_envelope)}
+    #new_envelope.envelope
       %div
         %p.name New Envelope
         %p.amount ...

@@ -1,4 +1,5 @@
 class Users < Application
+  before :auto_login if Merb.env == 'development'
   before :ensure_authenticated
 
   def login
