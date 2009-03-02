@@ -164,6 +164,19 @@ $('#new_envelope').click(function(){
   $.ajax({url:'/dialogs/new_envelope',type:'get',success:function(html){
     $('#dialog').remove();
     $(html).appendTo($('body'));
+    $('#dialog-form').ajaxForm({
+      // Send to the website, wait for the response, then close the dialog and reload the data for the page.
+      beforeSend: function(){
+        $('img#dollar_sign').clone().appendTo('#dialog ui-dialog-buttonpane');
+      },
+      success: function(){
+        Finch.reloadEnvelopes();
+        $('#dialog').dialog('close');
+      },
+      error: function(html){
+        alert(html);
+      }
+    });
     $('#dialog').dialog({
       modal: true,
       width: 460,
