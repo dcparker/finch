@@ -15,7 +15,7 @@ class Xaction
   property :completed,  Boolean
   property :created_at, DateTime
 
-  validates_with_method :amount, :verify_source_balance, :if => :new_record?
+  # validates_with_method :amount, :verify_source_balance, :if => :new_record?
   before :save, :complete_xaction
 
   def type
