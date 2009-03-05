@@ -23,14 +23,14 @@ class User
   def password_required?; false end
 
   def total_available
-    envelopes.all(:type.not => :envelope).inject(0) {|sum,a| sum + a.actual_amount}
+    envelopes.all(:type.not => :envelope).inject(MoneyType::Money.new(0)) {|sum,a| sum + a.actual_amount}
   end
 
   def total_set_aside
-    envelopes.all(:type => :envelope).inject(0) {|sum,a| sum + a.actual_amount}
+    envelopes.all(:type => :envelope).inject(MoneyType::Money.new(0)) {|sum,a| sum + a.actual_amount}
   end
 
   def total_budgeted
-    envelopes.all(:type => :envelope).inject(0) {|sum,a| sum + a.budget.amount}
+    envelopes.all(:type => :envelope).inject(MoneyType::Money.new(0)) {|sum,a| sum + a.budget.amount}
   end
 end
