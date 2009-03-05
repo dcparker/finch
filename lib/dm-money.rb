@@ -22,7 +22,7 @@ module MoneyType
     end
 
     def to_s
-      @value < 0 ? '-' : '' + case
+      (@value < 0 ? '-' : '') + case
       when @value.abs > 99
         @value.to_s[0..-3] + '.' + @value.to_s[-2..-1]
       when @value.abs > 0
