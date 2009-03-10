@@ -25,8 +25,10 @@ module MoneyType
       (@value < 0 ? '-' : '') + case
       when @value.abs > 99
         @value.abs.to_s[0..-3] + '.' + @value.abs.to_s[-2..-1]
-      when @value.abs > 0
+      when @value.abs > 10
         '.' + @value.abs.to_s
+      when @value.abs > 0
+        '.0' + @value.abs.to_s
       else
         @value.abs.to_s
       end
