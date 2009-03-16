@@ -25,6 +25,7 @@ class OpenId < Merb::Controller
 
   private
     def ensure_openid_url
+      Merb.logger.info "HOST: #{request.host}"
       throw :halt, redirect(url(:openid)) if session['openid.url'].nil?
     end
 end

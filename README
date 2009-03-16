@@ -10,3 +10,30 @@ X	1) Simple envelopes - deposit actual money, distribute to envelopes waiting to
 X	2) Static budgets - record on an envelope how much it SHOULD contain.
   3) Tagged transactions - pending and past, tied to envelopes.
 	4) Recurring budgets - every X period of time the budget SHOULD be reset to Y dollars.
+
+
+== Dependencies
+merb-core-1.0.7.1
+ruby-openid-2.1.2
+merb-action-args-1.0.7.1
+merb-assets-1.0.7.1
+merb-cache-1.0.7.1
+merb-helpers-1.0.7.1
+merb-mailer-1.0.7.1
+merb-slices-1.0.7.1
+merb-auth-core-1.0.7.1
+merb-auth-more-1.0.7.1
+merb-param-protection-1.0.7.1
+merb-exceptions-1.0.7.1
+dm-core-0.9.8
+dm-aggregates-0.9.8
+dm-migrations-0.9.8
+dm-timestamps-0.9.8
+dm-types-0.9.8
+dm-validations-0.9.8
+merb_datamapper-1.0.3
+merb-haml-1.0.7.1
+hoe
+lib/days_and_times-1.0.0.gem
+Uninstall merb-core-1.0.9
+do_mysql-0.9.9

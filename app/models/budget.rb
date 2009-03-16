@@ -1,4 +1,8 @@
-gem 'days_and_times'
+begin
+  gem 'days_and_times'
+rescue
+  gem 'dcparker-days_and_times'
+end
 require 'days_and_times'
 
 # A budget represents a single budgeted period, such as one month or one week, and an amount budgeted for that period.

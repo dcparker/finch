@@ -102,7 +102,7 @@ jQuery(function(){var $ = jQuery;
         title: $('#dialog-title').text(),
         close: function(){if(Finch.reload)Finch.reloadEnvelopes(true)},
         buttons: {
-          Save:   function(){ $('#dialog-form').submit() },
+          Save:   function(){ $('#dialog-form').submit(); Finch.reloadEnvelopes(); $('#dialog').dialog('close') },
           Cancel: function(){$('#dialog').dialog('close')}
         }
       });
@@ -197,7 +197,7 @@ jQuery(function(){var $ = jQuery;
           title: $('#dialog-title').text(),
           close: function(){if(Finch.reload)Finch.reloadEnvelopes(true)},
           buttons: {
-            Create:function(){Finch.reloadEnvelopes();$('#dialog').dialog('close')},
+            Create:function(){$('#dialog-form').submit(); Finch.reloadEnvelopes(); $('#dialog').dialog('close')},
             Cancel:function(){$('#dialog').dialog('close')}
           }
         });

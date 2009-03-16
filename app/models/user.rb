@@ -18,7 +18,7 @@ class User
   has n, :envelopes
 
   validates_is_unique :identity_url
-  validates_is_unique :name
+  # validates_is_unique :name
   validates_is_unique :email
   def password_required?; false end
 
