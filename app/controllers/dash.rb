@@ -1,5 +1,5 @@
 class Dash < Application
-  before :auto_login if Merb.env == 'development'
+  # before :auto_login if Merb.env == 'development'
   before :ensure_authenticated
 
   def index
